@@ -2,7 +2,7 @@ const express = require("express")
 const blogRouter = express.Router();
 const { getAllBlogs , addBlog ,
      updateBlog ,getById , 
-    deleteBlog , getByUserId} = require("");
+    deleteBlog , getByUserId} = require("../controller/blog-controller");
 
 blogRouter.get("/",getAllBlogs);
 blogRouter.post('/add', addBlog);
