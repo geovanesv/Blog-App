@@ -12,7 +12,7 @@ const getAllBlogs = async(req,res,next) =>{
     }
 
     if(!blogs){
-        return res.status(404).json({message : " No blogs found"});
+        return res.status(404).json({message : "no blogs found"});
     }
 
     return res.status(200).json({blogs});
