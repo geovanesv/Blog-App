@@ -1,10 +1,13 @@
+
 const express = require("express");
 const  userRouter  = require("./routes/user-routes");
 const blogRouter = require("./routes/blog-routes");
-require("./config/db");
-const cors = require('cors');
 
+const cors = require('cors');
 const app = express();
+
+// const conn = require("./config/db");
+require("./config/db");
 
 app.use(cors());
 
@@ -18,6 +21,7 @@ app.use("/api",(req,res,next) =>{
     res.send("hello")
 })
 
-//define port
 
-app.listen(5000, () => console.log("servidoe rodando na porta: 5000"));
+// conn();
+
+app.listen(5000, () => console.log("servidor rodando na porta: 5000"));

@@ -1,10 +1,27 @@
-const mongoose = require("mongoose");
 
-mongoose.set('strictQuery', false);
+const mongoose = require("mongoose")
 
 
-mongoose.connect("mongodb://127.0.0.1:27017/BlogApp").then(()=>{
-    console.log("connected!");
-}).catch((err)=>{
-    console.log(err);
-})
+
+const connect = () => {
+    mongoose.connect(`mongodb+srv://dbuser:senha#@$@cluster0.jqyx0.mongodb.net/?retryWrites=true&w=majority`)
+
+    const connection = mongoose.connection;
+
+    connection.on("error", () => {
+        console.error("Erro ao conectar com o mongoDB")
+    })
+
+    connection.on("open", () => {
+        console.log("Conetado ao mongoDB com sucesso!")
+    })
+}
+
+connect();
+
+module.exports = mongoose;
+
+
+
+
+
