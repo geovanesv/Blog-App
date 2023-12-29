@@ -12,7 +12,7 @@ const getAllBlogs = async(req,res,next) =>{
     }
 
     if(!blogs){
-        return res.status(404).json({message : "no blogs found"});
+        return res.status(404).json({message : "nenhum blog encontrado"});
     }
 
     return res.status(200).json({blogs});
@@ -32,7 +32,7 @@ const addBlog = async(req,res,next) =>{
         return console.log(e);
     }
         if(!existingUser){
-        return res.status(400).json({message: " Unautorized"});
+        return res.status(400).json({message: " Não autorizado"});
     }
 
 
@@ -76,7 +76,7 @@ const updateBlog = async(req,res,next) => {
     }
 
     if(!blog){
-        return res.status(500).json({message : "Unable to update"})
+        return res.status(500).json({message : "Não foi possível atualizar"})
     }
     
     return res.status(200).json({blog});
@@ -94,7 +94,7 @@ const getById = async (req,res,next) =>{
     }
 
     if(!blog){
-        return res.status(500).json({ message : "not found"});
+        return res.status(500).json({ message : "não encontrado"});
     }
     
     return res.status(200).json({blog});
@@ -108,7 +108,7 @@ const deleteBlog = async (req, res, next) => {
         const blog = await Blog.findByIdAndDelete(id).populate('user');
 
         if (!blog) {
-            return res.status(404).json({ message: "Blog not found" });
+            return res.status(404).json({ message: "Blogue não encontrado" });
         }
 
         // Remove the blog from the user's blogs array
@@ -116,11 +116,11 @@ const deleteBlog = async (req, res, next) => {
         user.blogs.pull(blog);
         await user.save();
 
-        return res.status(200).json({ message: "Successfully deleted" });
+        return res.status(200).json({ message: "Excluído com sucesso" });
 
     } catch (e) {
         console.error(e);
-        return res.status(500).json({ message: "Unable to delete" });
+        return res.status(500).json({ message: "Não foi possível excluir" });
 
     }
 }
@@ -135,7 +135,7 @@ const getByUserId = async (req, res, next) => {
       return console.log(err);
     }
     if (!userBlogs) {
-      return res.status(404).json({ message: "No Blog Found" });
+      return res.status(404).json({ message: "Nenhum blog encontrado" });
     }
     return res.status(200).json({ user: userBlogs });
   };
