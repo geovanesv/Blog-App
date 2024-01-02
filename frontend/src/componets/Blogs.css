@@ -1,0 +1,48 @@
+/* Blogs.css */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.blog-container {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.blog-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.blog-desc {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.blog-user {
+  font-style: italic;
+  color: #888;
+}
+
+.blog-date {
+  color: #888;
+}
+
+.add-blog-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.add-blog-btn:hover {
+  background-color: #45a049;
+}
